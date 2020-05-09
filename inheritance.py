@@ -16,12 +16,29 @@ class Employee:
 
     @property
     def email(self):
-        return '{}.{}@email.com'.format(self.first,self.last)
+        return '{}.{}@gmail.com'.format(self.first,self.last)
+
+    @fullname.setter
+    def fullname(self,name):
+        first,last = name.split(' ')
+        self.first = first
+        self.last = last
+
+
+    @fullname.deleter
+    def fullname(self):
+        print('Delete Name!')
+        self.first = None
+        self.last = None
 
 emp1 = Employee('John','Smith')
 
-emp1.first = 'Jim'
+
+
+
+emp1.fullname = ('Zack Bunch')
 
 print(emp1.first)
 print(emp1.email)
 print(emp1.fullname)
+del emp1.fullname
